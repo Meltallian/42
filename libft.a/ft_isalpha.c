@@ -1,22 +1,24 @@
-#include <unistd.h>
+#include <stdio.h>
 
 int ft_isalpha(int c)
 {
-    char a;
-    a = c - 0;
-
-    if(a > 64 && a < 91 || a > 96 && a < 123)
+    if((c > 64 && c < 91) || (c > 96 && c < 123))
     {
         return (1);
     }
     else
-        return (0);
+        return (0);io
+//
 }
-int main(int ac, char av)
+
+int main(int ac, char **av)
 {
+    int check;
+    check = av[1][0];
+
     if(ac != 2)
         return(1);
     else
-        ft_isalpha(av);
+        printf("Result: %d\n", ft_isalpha(check));
     return(0);
 }
