@@ -1,5 +1,5 @@
-#include <stdio.h>
-#include <ctype.h>
+//#include <stdio.h>
+//#include <ctype.h>
 
 int ft_isdigit(int arg)
 {
@@ -9,7 +9,7 @@ int ft_isdigit(int arg)
         return(0);
 }
 
-int main(int ac, char **av)
+/* int main(int ac, char **av)
 {
     int check;
     check = av[1][0];
@@ -20,4 +20,4 @@ int main(int ac, char **av)
         printf("Result: %d\n", ft_isdigit(check));
         printf("Result: %d\n", isdigit(check));
     return(0);
-}
+} */
