@@ -1,4 +1,4 @@
-#include <stdio.h>
+//#include <stdio.h>
 
 int ft_isalpha(int c)
 {
@@ -7,11 +7,10 @@ int ft_isalpha(int c)
         return (1);
     }
     else
-        return (0);io
-//
+        return (0);
 }
 
-int main(int ac, char **av)
+/* int main(int ac, char **av)
 {
     int check;
     check = av[1][0];
@@ -21,4 +20,4 @@ int main(int ac, char **av)
     else
         printf("Result: %d\n", ft_isalpha(check));
     return(0);
-}
+} */
