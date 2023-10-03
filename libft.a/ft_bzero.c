@@ -1,7 +1,7 @@
 #include <stdio.h>
 #include <string.h>
 
-void *ft_memset(void *ptr, int c, size_t n)
+void ft_bzero(void *ptr, size_t n)
 {
     char *str = ptr;
     int i;
@@ -9,10 +9,10 @@ void *ft_memset(void *ptr, int c, size_t n)
 
     while(i < n)
     {
-        str[i] = c;
+        str[i] = '\0';
         i++;
     }
-    return(str);
+    ptr = str;
 }
 
 /* int main(int ac, char **av)
