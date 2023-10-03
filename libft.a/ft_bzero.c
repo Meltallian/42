@@ -12,7 +12,6 @@ void ft_bzero(void *ptr, size_t n)
         str[i] = '\0';
         i++;
     }
-    ptr = str;
 }
 
 /* int main(int ac, char **av)
