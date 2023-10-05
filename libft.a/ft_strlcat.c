@@ -38,6 +38,7 @@ int main(int ac, char **av)
     dest = av[2];
 
     printf("Result: %ld\n", ft_strlcat(dest, src, 10));
-/*     printf("Result: %d\n", strlcat(dest, src, 50)); */
+     printf("Result: %d\n", strlcat(dest, src, 50)); 
     return(0);
-} */
+} 
+*/
