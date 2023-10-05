@@ -26,7 +26,7 @@ size_t ft_strlcat(char *dest, const char *src, size_t n)
         return(n);
     return (destlen + i);
 }
-
+/* 
 int main(int ac, char **av)
 {
     if(ac != 3)
@@ -40,4 +40,4 @@ int main(int ac, char **av)
     printf("Result: %ld\n", ft_strlcat(dest, src, 10));
 /*     printf("Result: %d\n", strlcat(dest, src, 50)); */
     return(0);
-}
+} */
