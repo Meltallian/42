@@ -30,7 +30,7 @@ const char *ft_strnstr(const char *big, const char *little, size_t len)
     return(0);
 }
 
-int main(int ac, char **av)
+/* int main(int ac, char **av)
 {
     if(ac != 3)
         return(1);
@@ -43,4 +43,4 @@ int main(int ac, char **av)
     printf("Result: %s\n", ft_strnstr(big, little, 10));
 //    printf("Result: %d\n", strnstr(big, little, 10));
     return(0);
-}
+} */
