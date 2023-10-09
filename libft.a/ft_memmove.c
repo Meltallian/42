@@ -1,40 +1,52 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   ft_memmove.c                                       :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: jbidaux <jeremie.bidaux@gmail.com>         +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2023/10/09 15:17:51 by jbidaux           #+#    #+#             */
+/*   Updated: 2023/10/09 16:40:05 by jbidaux          ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
 #include <stdio.h>
 #include <string.h>
 
-void *ft_memmove(void *dest, const void *src, size_t n)
+void	*ft_memmove(void *dest, const void *src, size_t n)
 {
-    const char *s = src;
-    char *d = dest;
-    char temp[n];
-    int i;
-    i = 0;
+	const char	*s;
+	char		*d;
+	int			i;
 
-    if(n == 0 || d == s)
-        return(dest);
-    while(i < n)
-    {
-        temp[i] = s[i];
-        i++;
-    }
-    i = 0;
-
-    while(i < n)
-    {
-        d[i] = temp[i];
-        i++;
-    }
-    return(dest);
+	d = dest;
+	s = src;
+	if (d > s)
+	{
+		while (n--)
+		{
+			d[n] = s[n];
+		}
+	}
+	else
+	{
+		while (n--)
+		{
+			*d = *s;
+		}
+	}
+	return (dest);
 }
 
 /* int main(int ac, char **av)
 {
-    if(ac != 2)
-        return(1);
+	if(ac != 2)
+		return(1);
 
-    char *check;
-    check = av[1];
+	char *check;
+	check = av[1];
 
-    printf("Result: %d\n", ft_strlen(check));
-    printf("Result: %ld\n", strlen(check));
-    return(0);
+	printf("Result: %d\n", ft_strlen(check));
+	printf("Result: %ld\n", strlen(check));
+	return(0);
 } */

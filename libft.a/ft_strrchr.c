@@ -1,26 +1,38 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   ft_strrchr.c                                       :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: jbidaux <jeremie.bidaux@gmail.com>         +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2023/10/09 13:51:43 by jbidaux           #+#    #+#             */
+/*   Updated: 2023/10/09 13:54:29 by jbidaux          ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
 #include <stdio.h>
 #include <string.h>
 
-char *ft_strrchr(const char *src, int c)
+char	*ft_strrchr(const char *src, int c)
 {
-    int i;
-    i = 0;
+	int	i;
 
-    while(src[i])
-    {
-        i++;
-    }
-    if(c == '\0')
-        return(&src[i]);
-    while(i >= 0)
-    {
-        if(src[i] == c)
-            return(&src[i]);
-        i--;
-    }
-    return(0);
+	i = 0;
+	while (src[i])
+	{
+		i++;
+	}
+	if (c == '\0')
+		return (&src[i]);
+	while (i >= 0)
+	{
+		if (src[i] == c)
+			return (&src[i]);
+		i--;
+	}
+	return (0);
 }
-/* 
+/*
 int main(int ac, char **av)
 {
     if(ac != 2)
