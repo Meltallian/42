@@ -6,7 +6,7 @@
 /*   By: jbidaux <jeremie.bidaux@gmail.com>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/09 15:17:51 by jbidaux           #+#    #+#             */
-/*   Updated: 2023/10/09 16:40:05 by jbidaux          ###   ########.fr       */
+/*   Updated: 2023/10/09 18:19:18 by jbidaux          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -32,7 +32,7 @@ void	*ft_memmove(void *dest, const void *src, size_t n)
 	{
 		while (n--)
 		{
-			*d = *s;
+			*d++ = *s++;
 		}
 	}
 	return (dest);
