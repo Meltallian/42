@@ -1,12 +1,12 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_substr.c                                        :+:      :+:    :+:   */
+/*   ft_strjoin.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: jbidaux <jeremie.bidaux@gmail.com>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/09 17:02:23 by jbidaux           #+#    #+#             */
-/*   Updated: 2023/10/10 08:56:38 by jbidaux          ###   ########.fr       */
+/*   Updated: 2023/10/10 09:14:09 by jbidaux          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,43 +25,43 @@ size_t	ft_strlen(const char *c)
 	return (i);
 }
 
-char	*ft_substr(const char *s, unsigned int start, size_t len)
+char	*ft_strjoin(const char *s, const char *s2)
 {
 	size_t	i;
-	char	*sub;
+	size_t	j;
+	char	*res;
 
-	if (ft_strlen(s) < ((size_t)start + len))
-		return (0);
-	sub = (char *)malloc((len + 1) * sizeof(char));
-	if (!sub)
+	res = (char *)malloc((ft_strlen(s) + ft_strlen(s2) + 1) * sizeof(char));
+	if (!res)
 		return (0);
 	i = 0;
-	while(i < len && s[start + i])
+	while (s[i])
 	{
-		sub[i] = s[start + i];
+		res[i] = s[i];
 		i++;
 	}
-	sub[i] = '\0';
-	return (sub);
+	j = 0;
+	while (s2[j])
+	{
+		res[i + j] = s2[j];
+		j++;
+	}
+	res[i + j] = '\0';
+	return (res);
 }
 
-/* int main(int ac, char **av)
+/* int main()
 {
-	if(ac != 4)
-		return(1);
-	char *str;
-	char *res;
-	unsigned int start;
-	size_t len;
+//	if(ac != 4)
+//		return(1);
+	const char *s = "I am";
+	const char *s2 = " pepegapog";
+	char *res = ft_strjoin(s, s2);
 	size_t i = 0;
-ß
-	str = av[1];
-	start = av[2][0];
-	len = av[3][0];
-	res = ft_substr(str, start, len);
+	printf("Result: %s\n", res);
 	while(res[i])
 	{
-		printf("Result: %c\n", res[i]);
+		printf("%c", res[i]);
 		i++;
 	}
 	return(0);
