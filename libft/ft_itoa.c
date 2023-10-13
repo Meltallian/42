@@ -6,7 +6,7 @@
 /*   By: jbidaux <jeremie.bidaux@gmail.com>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/09 17:02:23 by jbidaux           #+#    #+#             */
-/*   Updated: 2023/10/13 17:57:34 by jbidaux          ###   ########.fr       */
+/*   Updated: 2023/10/13 17:58:27 by jbidaux          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,8 +19,6 @@ static size_t	size_count(int n)
 	size_t	i;
 
 	i = 1;
-	if (n == -2147483648)
-		return (11);
 	if (n < 0)
 	{
 		n = n * -1;
