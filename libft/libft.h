@@ -6,7 +6,7 @@
 /*   By: jbidaux <jeremie.bidaux@gmail.com>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/11 09:59:17 by jbidaux           #+#    #+#             */
-/*   Updated: 2023/10/13 15:47:13 by jbidaux          ###   ########.fr       */
+/*   Updated: 2023/10/17 11:19:29 by jbidaux          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,6 +14,15 @@
 # define LIBFT_H
 
 # include <stddef.h>
+# include <stdlib.h>
+# include <stdio.h>
+# include <unistd.h>
+
+typedef struct s_list
+{
+	void			*content;
+	struct s_list	*next;
+}	t_list;
 
 int			ft_atoi(const char *str);
 void		ft_bzero(void *ptr, size_t n);
@@ -44,5 +53,12 @@ int			ft_toupper(int c);
 const char	*ft_strnstr(const char *big, const char *little, size_t len);
 char		**ft_split(const char *s, const char c);
 char		*ft_itoa(int n);
+char		*ft_strmapi(char const *s, char (*f)(unsigned int, char));
+void		ft_striteri(char *s, void (*f)(unsigned int, char*));
+void		ft_putchar_fd(char c, int fd);
+void		ft_putstr_fd(char *s, int fd);
+void		ft_putendl_fd(char *s, int fd);
+void		ft_putnbr_fd(int n, int fd);
+t_list		*ft_lstnew(void *content);
 
 #endif // LIBFT_H
