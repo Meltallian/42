@@ -11,7 +11,8 @@ SRC = \
 	ft_itoa.c ft_strmapi.c ft_striteri.c ft_putchar_fd.c ft_putstr_fd.c \
 	ft_putendl_fd.c ft_putnbr_fd.c
 
-SRC_bonus = ft_lstnew.c
+SRC_bonus = ft_lstnew.c ft_lstadd_front.c ft_lstsize.c ft_lstlast.c \
+	ft_lstadd_back.c ft_lstdelone.c ft_lstclear.c
 
 OBJ = $(SRC:.c=.o)
 OBJ_bonus = $(SRC_bonus:.c=.o)

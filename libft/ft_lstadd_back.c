@@ -1,28 +1,36 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_lstnew.c                                        :+:      :+:    :+:   */
+/*   ft_lstadd_back.c                                   :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: jbidaux <jeremie.bidaux@gmail.com>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/10/17 10:02:06 by jbidaux           #+#    #+#             */
-/*   Updated: 2023/10/17 11:53:49 by jbidaux          ###   ########.fr       */
+/*   Created: 2023/10/17 15:54:11 by jbidaux           #+#    #+#             */
+/*   Updated: 2023/10/17 17:15:45 by jbidaux          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-t_list	*ft_lstnew(void *content)
+void	ft_lstadd_back(t_list **lst, t_list *new)
 {
-	t_list	*new_elem;
+	t_list	*current;
 
-	new_elem = malloc(sizeof(t_list));
-	if (!new_elem)
-		return (0);
-	new_elem->content = content;
-	new_elem->next = NULL;
-	return (new_elem);
+	if (!lst || !new)
+		return ;
+	if (!*lst)
+	{
+		*lst = new;
+		return ;
+	}
+	current = *lst;
+	while (current->next)
+		current = current->next;
+	current->next = new;
 }
+
+//L'idee de if(!*lst) c-est que la liste n'a pas de node
+//il faut la remplir avec le node new.
 /*
 typedef struct s_list
 {
