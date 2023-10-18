@@ -12,7 +12,8 @@ SRC = \
 	ft_putendl_fd.c ft_putnbr_fd.c
 
 SRC_bonus = ft_lstnew.c ft_lstadd_front.c ft_lstsize.c ft_lstlast.c \
-	ft_lstadd_back.c ft_lstdelone.c ft_lstclear.c
+	ft_lstadd_back.c ft_lstdelone.c ft_lstclear.c ft_lstiter.c \
+	ft_lstmap.c
 
 OBJ = $(SRC:.c=.o)
 OBJ_bonus = $(SRC_bonus:.c=.o)

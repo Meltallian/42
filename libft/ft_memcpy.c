@@ -6,7 +6,7 @@
 /*   By: jbidaux <jeremie.bidaux@gmail.com>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/09 16:44:13 by jbidaux           #+#    #+#             */
-/*   Updated: 2023/10/11 09:58:07 by jbidaux          ###   ########.fr       */
+/*   Updated: 2023/10/18 12:08:23 by jbidaux          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,16 +15,16 @@
 
 void	*ft_memcpy(void *dest, const void *src, size_t n)
 {
-	const char	*str;
-	char		*str2;
+	const char	*src2;
+	char		*dest2;
 	size_t		i;
 
-	str2 = dest;
+	dest2 = dest;
 	i = 0;
-	str = src;
+	src2 = src;
 	while (i < n)
 	{
-		str2[i] = str[i];
+		dest2[i] = src2[i];
 		i++;
 	}
 	return (dest);
