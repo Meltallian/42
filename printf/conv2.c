@@ -1,3 +1,15 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   conv2.c                                            :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: jbidaux <jeremie.bidaux@gmail.com>         +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2023/10/23 09:51:18 by jbidaux           #+#    #+#             */
+/*   Updated: 2023/10/23 17:15:22 by jbidaux          ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
 #include "../libft/libft.h"
 #include <stdarg.h>
 
@@ -7,12 +19,8 @@ void	ft_conv_x(unsigned int n)
 {
 	char	hexa[16];
 
-	ft_memcpy(hexa, (char[16]){'0','1','2','3','4','5','6','7','8','9','a','b','c','d','e','f'}, 16);
-	if (n == 0)
-	{
-		ft_putchar(hexa[0]);
-		return ;
-	}
+	ft_memcpy(hexa, (char [16]){'0', '1', '2', '3', '4', '5', '6',
+		'7', '8', '9', 'a', 'b', 'c', 'd', 'e', 'f'}, 16);
 	if (n > 0)
 	{
 		ft_conv_x(n / 16);
@@ -20,20 +28,16 @@ void	ft_conv_x(unsigned int n)
 	}
 }
 
-void	ft_conv_X(unsigned int n)
+void	ft_conv_capx(unsigned int n)
 {
-	char	hexa[16];
+	char	hexacap[16];
 
-	ft_memcpy(hexa, (char[16]){'0','1','2','3','4','5','6','7','8','9','A','B','C','D','E','F'}, 16);
-	if (n == 0)
-	{
-		ft_putchar(hexa[0]);
-		return ;
-	}
+	ft_memcpy(hexacap, (char [16]){'0', '1', '2', '3', '4', '5', '6',
+		'7', '8', '9', 'A', 'B', 'C', 'D', 'E', 'F'}, 16);
 	if (n > 0)
 	{
-		ft_conv_x(n / 16);
-		ft_putchar(hexa[n % 16]);
+		ft_conv_capx(n / 16);
+		ft_putchar(hexacap[n % 16]);
 	}
 }
 
@@ -43,12 +47,8 @@ void	ft_conv_p(void *ptr)
 	char	hexa[16];
 
 	n = ft_atoi(ptr);
-/* 	if (n < 0)
-	{
-		ft_putchar('-');
-		n = -n;
-	} */
-	ft_memcpy(hexa, (char[16]){'0','1','2','3','4','5','6','7','8','9','A','B','C','D','E','F'}, 16);
+	ft_memcpy(hexa, (char [16]){'0', '1', '2', '3', '4', '5', '6',
+		'7', '8', '9', 'a', 'b', 'c', 'd', 'e', 'f'}, 16);
 	if (n == 0)
 	{
 		ft_putchar(hexa[0]);
@@ -59,43 +59,7 @@ void	ft_conv_p(void *ptr)
 		ft_conv_x(n / 16);
 		ft_putchar(hexa[n % 16]);
 	}
-}
-
-static size_t	size_count(unsigned int n)
-{
-	size_t	i;
-
-	i = 1;
-	while (n > 9)
-	{
-		n = n / 10;
-		i++;
-	}
-	return (i);
-}
-
-static char	*buff(char *str, int i, unsigned int n)
-{
-
-	while (--i >= 0)
-	{
-		str[i] = (n % 10) + 48;
-		n = n / 10;
-	}
-	return (str);
-}
-
-char	*ft_itoa_unsigned(unsigned int n)
-{
-	char			*str;
-	unsigned int	i;
-
-	i = size_count(n);
-	str = ft_calloc(i + 1, sizeof(char));
-	if (!str)
-		return (0);
-	str = buff(str, i, n);
-	return (str);
+	free(hexa);
 }
 
 void	ft_conv_u(unsigned int num)
@@ -104,13 +68,17 @@ void	ft_conv_u(unsigned int num)
 	unsigned int	j;
 
 	j = 0;
-	str = ft_itoa_unsigned(num);
+	str = ft_usitoa(num);
 	if (!str)
 		return ;
-	while(str[j])
+	while (str[j])
 	{
 		ft_putchar(str[j]);
 		j++;
 	}
-	free(str);
+}
+
+void	ft_conv_percent(int c)
+{
+	ft_putchar(c);
 }

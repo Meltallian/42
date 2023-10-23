@@ -1,3 +1,15 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   conv1.c                                            :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: jbidaux <jeremie.bidaux@gmail.com>         +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2023/10/23 09:51:29 by jbidaux           #+#    #+#             */
+/*   Updated: 2023/10/23 17:19:33 by jbidaux          ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
 #include "../libft/libft.h"
 
 void	ft_putchar(int c)
@@ -17,7 +29,7 @@ void	ft_conv_d(int d)
 
 	i = 0;
 	str = ft_itoa(d);
-	while(str[i])
+	while (str[i])
 	{
 		ft_putchar(str[i]);
 		i++;
@@ -43,7 +55,7 @@ void	ft_conv_i(int i)
 
 	j = 0;
 	str = ft_itoa(i);
-	while(str[j])
+	while (str[j])
 	{
 		ft_putchar(str[j]);
 		j++;
