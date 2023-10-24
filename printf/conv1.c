@@ -10,7 +10,7 @@
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../libft/libft.h"
+#include "ft_printf.h"
 
 void	ft_putchar(int c)
 {
@@ -38,13 +38,10 @@ void	ft_conv_d(int d)
 
 void	ft_conv_s(char *str)
 {
-	size_t	i;
-
-	i = 0;
-	while (str[i])
+	while (*str)
 	{
-		putchar(str[i]);
-		i++;
+		ft_putchar(*str);
+		str++;
 	}
 }
 

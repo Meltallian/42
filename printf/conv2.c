@@ -10,8 +10,7 @@
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../libft/libft.h"
-#include <stdarg.h>
+#include "ft_printf.h"
 
 void	ft_putchar(int c);
 
@@ -43,10 +42,11 @@ void	ft_conv_capx(unsigned int n)
 
 void	ft_conv_p(void *ptr)
 {
-	int		n;
-	char	hexa[16];
+	__uintmax_t	n;
+	char		hexa[16];
 
-	n = ft_atoi(ptr);
+	write(1, "0x", 2);
+	n = (__uintmax_t)ptr;
 	ft_memcpy(hexa, (char [16]){'0', '1', '2', '3', '4', '5', '6',
 		'7', '8', '9', 'a', 'b', 'c', 'd', 'e', 'f'}, 16);
 	if (n == 0)
@@ -59,7 +59,6 @@ void	ft_conv_p(void *ptr)
 		ft_conv_x(n / 16);
 		ft_putchar(hexa[n % 16]);
 	}
-	free(hexa);
 }
 
 void	ft_conv_u(unsigned int num)

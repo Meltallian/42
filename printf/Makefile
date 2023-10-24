@@ -1,38 +1,34 @@
-NAME = libftprintf.out
 # Variables
 CC = gcc
 CFLAGS = -Wall -Wextra -Werror
+NAME = libftprintf.a
+LIBFT = ../libft/libft.a
+PRINTF_SRC = $(wildcard *.c)
+PRINTF_OBJ = $(PRINTF_SRC:.c=.o)
+INCLUDES_DIR = -I./includes -I../libft/includes
 
-INCLUDES_DIR = -I./includes -I../libft
-LFLAGS = -L../libft # Libraries path (to the libft directory where libft.a is located)
-LIBS = -lft # The libraries to link against
-
-SRC = conv1.c conv2.c main.c
-
-OBJ = $(SRC:.c=.o)
-
-#Default target (target is the name of the final executable)
+# Default rule
 all: $(NAME)
 
-$(NAME): $(OBJ) ../libft/libft.a
-	$(CC) $(CFLAGS) $(INCLUDES_DIR) $(OBJ) $(LFLAGS) $(LIBS) -o $(NAME)
-
-# Compiling
-%.o: %.c
+# This won't be called if the files don't exist or are not updated
+$(PRINTF_OBJ): %.o: %.c
 	$(CC) $(CFLAGS) $(INCLUDES_DIR) -c $< -o $@
 
-# Cleaning up
+$(LIBFT):
+	make -C ../libft
+
+$(NAME): $(LIBFT) $(PRINTF_OBJ)
+	cp $(LIBFT) $(NAME)
+	ar rcs $(NAME) $(PRINTF_OBJ)
+
 clean:
-	rm -f $(OBJ)
+	make clean -C ../libft
+	rm -f $(PRINTF_OBJ)
 
 fclean: clean
+	make fclean -C ../libft
 	rm -f $(NAME)
 
 re: fclean all
 
-# Run target (if you want to compile and then immediately run)
-run: $(TARGET)
-	./$(TARGET)
-
-# Protecting
-.PHONY: all clean fclean re run
+.PHONY: all clean fclean re

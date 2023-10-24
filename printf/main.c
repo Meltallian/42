@@ -10,19 +10,7 @@
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../libft/libft.h"
-#include <stdarg.h>
-
-void	ft_putchar(int c);
-void	ft_conv_c(char c);
-void	ft_conv_d(int d);
-void	ft_conv_s(char *str);
-void	ft_conv_i(int i);
-void	ft_conv_x(unsigned int n);
-void	ft_conv_capx(unsigned int n);
-void	ft_conv_p(void *ptr);
-void	ft_conv_u(unsigned int num);
-void	ft_conv_percent(int c);
+#include "ft_printf.h"
 
 void	ft_format(va_list va, char *format, size_t	*i)
 {
@@ -63,7 +51,7 @@ int	ft_printf(const char *str, ...)
 	va_end(va);
 	return (i);
 }
-
+/*
 int	main()
 {
 	char *ptr = "cinquante";
@@ -73,3 +61,4 @@ int	main()
 	printf("Hello %s world", ptr);
 	return (0);
 }
+ */
