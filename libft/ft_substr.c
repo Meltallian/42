@@ -6,7 +6,7 @@
 /*   By: jbidaux <jeremie.bidaux@gmail.com>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/09 17:02:23 by jbidaux           #+#    #+#             */
-/*   Updated: 2023/10/11 17:13:44 by jbidaux          ###   ########.fr       */
+/*   Updated: 2023/10/25 17:08:27 by jbidaux          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -38,6 +38,7 @@ char	*ft_substr(const char *s, unsigned int start, size_t len)
 	sub[i] = '\0';
 	return (sub);
 }
+
 //The idea behind first malloc is to give a 1 byte
 // space to return a 1 byte sring
 //in which we store a null terminator
