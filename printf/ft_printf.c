@@ -1,64 +1,61 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   main.c                                             :+:      :+:    :+:   */
+/*   ft_printf.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: jbidaux <jeremie.bidaux@gmail.com>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/23 09:51:35 by jbidaux           #+#    #+#             */
-/*   Updated: 2023/10/23 17:26:11 by jbidaux          ###   ########.fr       */
+/*   Updated: 2023/10/25 18:13:04 by jbidaux          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ft_printf.h"
 
-void	ft_format(va_list va, char *format, size_t	*i)
+t_ull	ft_format(va_list va, char *format, t_ull	*i)
 {
-	if (*format == 'd' || *format == 'i')
-		ft_conv_d(va_arg(va, int));
+	t_ull	j;
+
+	j = 0;
+	if (*format == 'd')
+		j += ft_conv_d(va_arg(va, int));
+	else if (*format == 'i')
+		j += ft_conv_d(va_arg(va, int));
 	else if (*format == 'c')
-		ft_conv_c(va_arg(va, int));
+		j += ft_conv_c(va_arg(va, int));
 	else if (*format == 's')
-		ft_conv_s(va_arg(va, char *));
+		j += ft_conv_s(va_arg(va, char *));
 	else if (*format == 'p')
-		ft_conv_p(va_arg(va, void *));
+		j += ft_conv_p(va_arg(va, t_ull));
 	else if (*format == 'u')
-		ft_conv_u(va_arg(va, unsigned int));
+		j += ft_conv_u(va_arg(va, unsigned int));
 	else if (*format == 'x')
-		ft_conv_x(va_arg(va, unsigned int));
+		j += ft_conv_x(va_arg(va, unsigned int));
 	else if (*format == 'X')
-		ft_conv_capx(va_arg(va, unsigned int));
+		j += ft_conv_capx(va_arg(va, unsigned int));
 	else if (*format == '%')
-		ft_putchar('%');
+		j += ft_putchar('%');
 	(*i)++;
+	return (j);
 }
 
 int	ft_printf(const char *str, ...)
 {
-	size_t	i;
+	t_ull	i;
+	t_ull	counter;
 	va_list	va;
 
 	i = 0;
+	counter = 0;
 	va_start(va, str);
 	while (str[i])
 	{
 		if (str[i] == '%')
-			ft_format(va, (char *)&str[i + 1], &i);
+			counter += ft_format(va, (char *)&str[i + 1], &i);
 		else
-			ft_putchar(str[i]);
+			counter += ft_putchar(str[i]);
 		i++;
 	}
 	va_end(va);
-	return (i);
+	return (counter);
 }
-/*
-int	main()
-{
-	char *ptr = "cinquante";
-//	unsigned int	i = 156516510;
-	ft_printf("Hello %s world", ptr);
-	printf("\n");
-	printf("Hello %s world", ptr);
-	return (0);
-}
- */
