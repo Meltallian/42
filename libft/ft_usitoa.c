@@ -6,7 +6,7 @@
 /*   By: jbidaux <jeremie.bidaux@gmail.com>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/26 11:20:41 by jbidaux           #+#    #+#             */
-/*   Updated: 2023/10/26 11:28:46 by jbidaux          ###   ########.fr       */
+/*   Updated: 2023/10/26 13:42:25 by jbidaux          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -35,7 +35,7 @@ static char	*buff(char *str, int i, unsigned int n)
 	return (str);
 }
 
-char	*ft_usitoa(unsigned int n)
+char	*ft_unsitoa(unsigned int n)
 {
 	char	*str;
 	int		i;
