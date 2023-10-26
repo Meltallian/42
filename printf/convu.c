@@ -1,63 +1,54 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   conv1.c                                            :+:      :+:    :+:   */
+/*   convu.c                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: jbidaux <jeremie.bidaux@gmail.com>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/10/23 09:51:29 by jbidaux           #+#    #+#             */
-/*   Updated: 2023/10/26 11:25:43 by jbidaux          ###   ########.fr       */
+/*   Created: 2023/10/26 11:06:42 by jbidaux           #+#    #+#             */
+/*   Updated: 2023/10/26 12:25:26 by jbidaux          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
+#include "./libft/libft.h"
 #include "ft_printf.h"
 
-t_ull	ft_putchar(int c)
+static int	size_count(unsigned int n)
 {
-	write(1, &c, 1);
-	return (1);
+	int	i;
+
+	i = 1;
+	while (n > 9)
+	{
+		n = n / 10;
+		i++;
+	}
+	return (i);
 }
 
-t_ull	ft_conv_c(char c)
+static char	*buff(char *str, int i, unsigned int n)
 {
-	ft_putchar(c);
-	return (1);
+	while (--i >= 0)
+	{
+		str[i] = (n % 10) + 48;
+		n = n / 10;
+	}
+	return (str);
 }
 
-t_ull	ft_conv_d(int d)
+char	*ft_usitoa(unsigned int n)
 {
 	char	*str;
-	t_ull	i;
+	int		i;
 
-	i = 0;
-	str = ft_itoa(d);
-	while (str[i])
-	{
-		ft_putchar(str[i]);
-		i++;
-	}
-	free(str);
-	return (i);
+	i = size_count(n);
+	str = ft_calloc(i + 1, sizeof(char));
+	if (!str)
+		return (0);
+	str = buff(str, i, n);
+	return (str);
 }
 
-t_ull	ft_conv_s(char *str)
-{
-	t_ull	i;
-
-	if (str == NULL)
-	{
-		write (1, "(null)", 6);
-		return (6);
-	}
-	i = 0;
-	while (str[i])
-	{
-		ft_putchar(str[i]);
-		i++;
-	}
-	return (i);
-}
-/*
 t_ull	ft_conv_u(unsigned int num)
 {
 	char			*str;
@@ -74,4 +65,4 @@ t_ull	ft_conv_u(unsigned int num)
 	}
 	free(str);
 	return (j);
-} */
+}

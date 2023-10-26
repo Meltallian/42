@@ -6,18 +6,18 @@
 /*   By: jbidaux <jeremie.bidaux@gmail.com>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/25 10:22:46 by jbidaux           #+#    #+#             */
-/*   Updated: 2023/10/25 18:25:37 by jbidaux          ###   ########.fr       */
+/*   Updated: 2023/10/26 12:01:42 by jbidaux          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ft_printf.h"
 
 int main() {
-    printf("Testing %%:\n");
+/*     printf("Testing %%:\n");
     printf("Expected: %%\n");
     ft_printf("Actual: %%");
-    printf("\n\n");
-
+    printf("\n\n"); */
+/*
 	printf("Testing %%c:\n");
 	char ch = 'A';
 	printf("Expected: %c\n", ch);
@@ -39,7 +39,7 @@ int main() {
     ft_printf("Actual: ", number);
 	printf("\n%d", ft_printf("%d", number));
     printf("\n\n");
-/*
+
     printf("Testing %%p:\n");
 //	void *ptr = &number;
     printf("Expected: ");
@@ -68,9 +68,10 @@ int main() {
     printf("\n\n");
  */
     printf("Testing %%u:\n");
-    unsigned int unumber = 12345;
-    printf("Expected: %u\n", unumber);
-    ft_printf("Actual: %u", number);
+ //   unsigned int unumber = -100550000;
+    printf("dgs%uxx", 10);
+	    printf("\n");
+    ft_printf("dgs%uxx", 10);
     printf("\n\n");
     return (0);
 }

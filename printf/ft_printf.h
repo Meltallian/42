@@ -6,7 +6,7 @@
 /*   By: jbidaux <jeremie.bidaux@gmail.com>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/11 09:59:17 by jbidaux           #+#    #+#             */
-/*   Updated: 2023/10/25 17:43:39 by jbidaux          ###   ########.fr       */
+/*   Updated: 2023/10/26 10:40:07 by jbidaux          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -39,7 +39,7 @@ t_ull	ft_conv_capx(unsigned int n);
 t_ull	ft_conv_p(t_ull n);
 t_ull	ft_conv_u(unsigned int num);
 t_ull	ft_conv_percent(int c);
-t_ull	ft_format(va_list va, char *format, t_ull	*i);
+t_ull	ft_format(va_list va, char *format, t_ull *i);
 int		ft_printf(const char *str, ...);
 
 #endif // FT_PRINTF_H
